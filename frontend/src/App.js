@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
-import FormularioPeleadores from "./components/FormularioPeleadores.js"
+import FormularioPeleadores from "./components/FormularioPeleadores.js";
+import Historial from "./components/Historial.js";
 
 class App extends Component {
 
@@ -15,7 +16,8 @@ class App extends Component {
       ganador: null,
       imagenGanador:null,
       followersGanador: null,
-      error: false
+      error: false,
+      historial: []
     };
 
     this.obtenerLikesUsuario = this.obtenerLikesUsuario.bind(this);
@@ -134,6 +136,8 @@ class App extends Component {
         <div> {ganador} </div>
         <div> {img} </div>
         <div> {follows} </div>
+
+        <Historial historial={this.state.historial}/>
       </div>
     );
   }

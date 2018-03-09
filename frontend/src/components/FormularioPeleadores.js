@@ -13,7 +13,7 @@ export default class FormFight extends React.Component {
 		this.getPeleador1 = this.getPeleador1.bind(this);
 		this.getPeleador2 = this.getPeleador2.bind(this);
 
-	}	
+	}
 
 	getPeleador1(event){
 		this.setState({peleador1: event.target.value});
@@ -31,8 +31,8 @@ export default class FormFight extends React.Component {
 		const c1 = this.state.peleador1;
 		const c2 = this.state.peleador2;
 		this.props.peleadores(c1, c2);
-		const m = this.state.peleador1+ " vs " + this.state.peleador2;
-		console.log(m);
+		//const m = this.state.peleador1+ " vs " + this.state.peleador2;
+		//console.log(m);
 	}
 
 	render () {
