@@ -14,7 +14,8 @@ class App extends Component {
       total2: null,
       ganador: null,
       imagenGanador:null,
-      followersGanador: null
+      followersGanador: null,
+      error: false
     };
 
     this.obtenerLikesUsuario = this.obtenerLikesUsuario.bind(this);
@@ -46,6 +47,7 @@ class App extends Component {
 
   obtenerLikesUsuario(peleador ,c){
 
+    if (this.state.error === false){
     fetch("https://www.instagram.com/" +peleador+"/?__a=1")
       .then((res) =>{
         if (res.ok)
@@ -59,7 +61,11 @@ class App extends Component {
         });
         c(total);
       })
-      .catch ((err) => console.log("Error :v " + err.message));
+      .catch ((err) => {
+        this.setState({error: true});
+        console.log(err.message);
+      });
+    }
   }
 
   obtenerDatosGanador(peleador){
@@ -73,12 +79,15 @@ class App extends Component {
         this.setState({imagenGanador: r.user.profile_pic_url_hd, followersGanador: r.user.followed_by.count})
        
       })
-      .catch ((err) => console.log("Error :v " + err.message));
+      .catch ((err) => {
+        this.setState({error: true});
+        console.log(err.message);
+      });
   }
 
 
   peleadores(p1, p2){
-    this.setState({peleador1: p1, peleador2: p2});
+    this.setState({peleador1: p1, peleador2: p2, error: false, ganador: null});
   }
 
   render() {
@@ -87,6 +96,7 @@ class App extends Component {
     let ganador = null;
     let follows = null;
     let img = null;
+    let error = null;
     if (this.state.ganador !== null){
       ganador=(<h1> El ganador es:
        @{this.state.ganador} </h1>      
@@ -101,6 +111,10 @@ class App extends Component {
       pelea = (<h1> Pelea entre @{this.state.peleador1} y @{this.state.peleador2} </h1>);
     }
 
+    if (this.state.error === true){
+      error = (<h2> ERROR: Los datos deben contener usuarios válidos y sin cuentas privadas. </h2>)
+    }
+
     return (
       <div className="App">
         <header className="App-header">
@@ -108,10 +122,14 @@ class App extends Component {
         </header>      
         <br/> 
 
+        <p> Nota: Agregue los usuarios sin el @ al princicio </p>
+
         <FormularioPeleadores peleadores={this.peleadores.bind(this)}/>
         <br/>
 
         <div> {pelea} </div>
+
+        <div> {error} </div>
 
         <div> {ganador} </div>
         <div> {img} </div>
