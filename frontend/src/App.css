@@ -32,6 +32,10 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f0b7a1', end
   padding-top: 7vw;
 }
 
+img {
+    border-radius: 50%;
+}
+
 header {
   width: 100%;
   height: auto;
