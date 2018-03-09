@@ -94,17 +94,19 @@ class App extends Component {
 
   render() {
 
-    console.log("render");
     let ganador = null;
     let follows = null;
     let img = null;
     let error = null;
+    let link = "https://www.instagram.com/"+this.state.ganador;
+    console.log(link);
     if (this.state.ganador !== null){
       ganador=(<h1> El ganador es:
        @{this.state.ganador} </h1>      
        );
        follows = (<h1> Followers: {this.state.followersGanador} </h1>);
-       img = (<img src={this.state.imagenGanador} alt="ElGanador"/>);
+       img = (<a href = {link}>
+       <img src={this.state.imagenGanador} alt="ElGanador"/></a>);
     }
 
     let pelea = null;
