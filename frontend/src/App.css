@@ -9,14 +9,19 @@
 }
 
 .App-header {
-  background-color: #5C2E0D;
+  background: #f0b7a1; /* Old browsers */
+background: -moz-linear-gradient(left, #f0b7a1 0%, #752201 0%, #893c10 10%, #893c10 10%, #ff1e1e 12%, #f4d01d 15%, #f4d01d 16%, #5aea1c 19%, #1d4cf7 21%, #1d4cf7 21%, #893c10 24%, #893c10 76%, #000000 85%, #893c10 92%, #8c3310 100%, #bf6e4e 100%); /* FF3.6-15 */
+background: -webkit-linear-gradient(left, #f0b7a1 0%,#752201 0%,#893c10 10%,#893c10 10%,#ff1e1e 12%,#f4d01d 15%,#f4d01d 16%,#5aea1c 19%,#1d4cf7 21%,#1d4cf7 21%,#893c10 24%,#893c10 76%,#000000 85%,#893c10 92%,#8c3310 100%,#bf6e4e 100%); /* Chrome10-25,Safari5.1-6 */
+background: linear-gradient(to right, #f0b7a1 0%,#752201 0%,#893c10 10%,#893c10 10%,#ff1e1e 12%,#f4d01d 15%,#f4d01d 16%,#5aea1c 19%,#1d4cf7 21%,#1d4cf7 21%,#893c10 24%,#893c10 76%,#000000 85%,#893c10 92%,#8c3310 100%,#bf6e4e 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f0b7a1', endColorstr='#bf6e4e',GradientType=1 ); /* IE6-9 */
   height: 150px;
   padding: 20px;
   color: white;
 }
 
 .App-title {
-  font-size: 1.5em;
+  font-size: 4.5vw;
+  font-family: 'Coiny', cursive;
 }
 
 .App-intro {
@@ -25,6 +30,11 @@
 
 .formulario {
   padding-top: 7vw;
+}
+
+header {
+  width: 100%;
+  height: auto;
 }
 
 button {
