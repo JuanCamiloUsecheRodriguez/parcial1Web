@@ -1,6 +1,6 @@
 # Webdev-InstaFight
 ## Description
-This is a web application to compare two accounts on instagram in this way: You give the two accounts and the app will take the last picture uploads from both and respond with the account with the most likes. **you also get** Number of followers of the winner accounts **Lastly**, there is also a button that takes you to the profile of the winner in case you want to follow the account.
+This is a web application to compare two accounts on instagram in this way: You give the two accounts and the app will take the last picture uploads from both and respond with the account with the most likes. **you also get** Number of followers of the winner accounts **Lastly** if you click the image profile, that takes you to the profile of the winner in case you want to follow the account.
 
 ## Motivation
 This is a project for a [web development class](http://johnguerra.co/classes/webDevelopment_spring_2018/) in [Uniandes](https://www.uniandes.edu.co). The objective is to make a quick project using **node, MongoDB, ReactJS**.
