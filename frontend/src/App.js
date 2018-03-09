@@ -12,13 +12,9 @@ class App extends Component {
       peleador2: null,
       total1: null,
       total2: null,
-      imagen1: null,
-      imagen2: null,
-      followers1: null,
-      followers2: null,
       ganador: null,
       imagenGanador:null,
-      followersGanador:null
+      followersGanador: null
     };
 
     this.obtenerLikesUsuario = this.obtenerLikesUsuario.bind(this);
@@ -38,8 +34,10 @@ class App extends Component {
       let res = null;
       if (this.state.total1 >= this.state.total2){
         res = this.state.peleador1;
+        this.obtenerDatosGanador(this.state.peleador1);
       } else {
         res = this.state.peleador2;
+        this.obtenerDatosGanador(this.state.peleador2);
       }
 
       this.setState({peleador1: null, peleador2: null, total1: null, total2: null, ganador: res});
@@ -64,6 +62,20 @@ class App extends Component {
       .catch ((err) => console.log("Error :v " + err.message));
   }
 
+  obtenerDatosGanador(peleador){
+
+    fetch("https://www.instagram.com/" +peleador+"/?__a=1")
+      .then((res) =>{
+        if (res.ok)
+          return res.json();
+      })
+      .then ((r) => {
+        this.setState({imagenGanador: r.user.profile_pic_url_hd, followersGanador: r.user.followed_by.count})
+       
+      })
+      .catch ((err) => console.log("Error :v " + err.message));
+  }
+
 
   peleadores(p1, p2){
     this.setState({peleador1: p1, peleador2: p2});
@@ -73,10 +85,14 @@ class App extends Component {
 
     console.log("render");
     let ganador = null;
+    let follows = null;
+    let img = null;
     if (this.state.ganador !== null){
       ganador=(<h1> El ganador es:
-       @{this.state.ganador} </h1>
+       @{this.state.ganador} </h1>      
        );
+       follows = (<h1> Followers: {this.state.followersGanador} </h1>);
+       img = (<img src={this.state.imagenGanador}/>);
     }
 
     let pelea = null;
@@ -98,6 +114,8 @@ class App extends Component {
         <div> {pelea} </div>
 
         <div> {ganador} </div>
+        <div> {img} </div>
+        <div> {follows} </div>
       </div>
     );
   }
