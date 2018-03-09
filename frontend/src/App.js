@@ -12,7 +12,13 @@ class App extends Component {
       peleador2: null,
       total1: null,
       total2: null,
-      ganador: null
+      imagen1: null,
+      imagen2: null,
+      followers1: null,
+      followers2: null,
+      ganador: null,
+      imagenGanador:null,
+      followersGanador:null
     };
 
     this.obtenerLikesUsuario = this.obtenerLikesUsuario.bind(this);
@@ -69,7 +75,8 @@ class App extends Component {
     let ganador = null;
     if (this.state.ganador !== null){
       ganador=(<h1> El ganador es:
-       @{this.state.ganador} </h1>);
+       @{this.state.ganador} </h1>
+       );
     }
 
     let pelea = null;

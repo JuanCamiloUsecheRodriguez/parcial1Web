@@ -37,17 +37,19 @@ export default class FormFight extends React.Component {
 
 	render () {
 		return(
-			<div>
+			<div className = "formulario">
 				<div>
 					<input placeholder = "Peleador 1"
                 		onChange={(evt)=>this.getPeleador1(evt)}
                 		required/>
              	</div>
+             	<br/>
              	<div>
              		<input placeholder = "Peleador 2"
              			onChange={(evt)=>this.getPeleador2(evt)}
                 		required/>
                 </div>
+                <br/>
                 <button className="btn btn-primary" id="boton" onClick={()=>this.handleSubmit()}>cargar peleadores</button>
                 <br/>
                 <button className="btn btn-primary" id="boton" onClick={()=>this.handleSubmit()}>A pelear!</button>
