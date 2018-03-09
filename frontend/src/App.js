@@ -92,7 +92,7 @@ class App extends Component {
        @{this.state.ganador} </h1>      
        );
        follows = (<h1> Followers: {this.state.followersGanador} </h1>);
-       img = (<img src={this.state.imagenGanador}/>);
+       img = (<img src={this.state.imagenGanador} alt="ElGanador"/>);
     }
 
     let pelea = null;
