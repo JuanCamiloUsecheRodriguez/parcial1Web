@@ -15,16 +15,16 @@ class App extends Component {
       ganador: null
     };
 
-    this.obtenerDatos = this.obtenerDatos.bind(this);
+    this.obtenerLikesUsuario = this.obtenerLikesUsuario.bind(this);
     this.peleadores = this.peleadores.bind(this);
   }
 
   componentWillUpdate() {
     if (this.state.peleador1 !== null && this.state.peleador2 !== null && 
       this.state.total1 === null && this.state.total2 === null){
-      this.obtenerDatos(this.state.peleador1, (t) => {
-        this.obtenerDatos(this.state.peleador2, (t2) => {
-          this.setState({total1: t, total2: t2});
+      this.obtenerLikesUsuario(this.state.peleador1, (t) => {
+        this.obtenerLikesUsuario(this.state.peleador2, (t2) => {
+          this.setState({total1: t, total2: t2, ganador: null});
         });
       });
     }
@@ -36,14 +36,11 @@ class App extends Component {
         res = this.state.peleador2;
       }
 
-      this.setState({peleador1: null, peleador2: null, ganador: res});
+      this.setState({peleador1: null, peleador2: null, total1: null, total2: null, ganador: res});
     }
   }
 
-
-
-
-  obtenerDatos(peleador ,c){
+  obtenerLikesUsuario(peleador ,c){
 
     fetch("https://www.instagram.com/" +peleador+"/?__a=1")
       .then((res) =>{
@@ -58,35 +55,42 @@ class App extends Component {
         });
         c(total);
       })
-      .catch ((err) => console.log("Error :v" + err.message));
+      .catch ((err) => console.log("Error :v " + err.message));
   }
 
 
   peleadores(p1, p2){
-    console.log("inn");
     this.setState({peleador1: p1, peleador2: p2});
   }
 
   render() {
+
     console.log("render");
     let ganador = null;
     if (this.state.ganador !== null){
-      ganador=(<h1>
-       {this.state.ganador} </h1>);
+      ganador=(<h1> El ganador es:
+       @{this.state.ganador} </h1>);
+    }
+
+    let pelea = null;
+
+    if (this.state.peleador1 !== null && this.state.peleador2 !== null){
+      pelea = (<h1> Pelea entre @{this.state.peleador1} y @{this.state.peleador2} </h1>);
     }
 
     return (
       <div className="App">
         <header className="App-header">
           <h1 className="App-title"> InstaFight! </h1>
-        </header>
-        <p className="App-intro">
-          Equisde
-        </p>
-
-        <div> {ganador} </div>
+        </header>      
+        <br/> 
 
         <FormularioPeleadores peleadores={this.peleadores.bind(this)}/>
+        <br/>
+
+        <div> {pelea} </div>
+
+        <div> {ganador} </div>
       </div>
     );
   }

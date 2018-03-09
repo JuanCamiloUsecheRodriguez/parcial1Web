@@ -17,15 +17,14 @@ export default class FormFight extends React.Component {
 
 	getPeleador1(event){
 		this.setState({peleador1: event.target.value});
-		const m = this.state.peleador1;
-		console.log(m);
+		//const m = this.state.peleador1;
+		//console.log(m);
 	}
 
 	getPeleador2(event){
-		console.log(event.target.value);
 		this.setState({peleador2: event.target.value});
-		const m = this.state.peleador2;
-		console.log(m);	
+		//const m = this.state.peleador2;
+		//console.log(m);	
 	}
 
 	handleSubmit( ) {
@@ -49,7 +48,9 @@ export default class FormFight extends React.Component {
              			onChange={(evt)=>this.getPeleador2(evt)}
                 		required/>
                 </div>
-                <button className="btn btn-primary" id="boton" onClick={()=>this.handleSubmit()}>A pelear</button>
+                <button className="btn btn-primary" id="boton" onClick={()=>this.handleSubmit()}>cargar peleadores</button>
+                <br/>
+                <button className="btn btn-primary" id="boton" onClick={()=>this.handleSubmit()}>A pelear!</button>
             </div>
 			)		
 	}	
