@@ -27,6 +27,12 @@
   padding-top: 7vw;
 }
 
+button {
+  font-size: 2vw;
+  color: white;
+  background-color: black;
+}
+
 input {
   font-size: 2vw;
   text-align: center;
