@@ -1,4 +1,4 @@
-# Insta Fight
+# Webdev-InstaFight
 ## Description
 This is a web application to compare two accounts on instagram in this way: You give the two accounts and the app will take the last picture uploads from both and respond with the account with the most likes. **you also get** Number of followers of the winner accounts **Lastly**, there is also a button that takes you to the profile of the winner in case you want to follow the account.
 
